@@ -23,3 +23,4 @@ ui/dist/
 
 # macOS
 .DS_Store
+*.sql

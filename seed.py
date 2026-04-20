@@ -2,6 +2,7 @@ import asyncio
 import json
 import logging
 import os
+from datetime import date, datetime
 
 from sqlalchemy import text
 from core.database import AsyncSessionLocal
@@ -34,6 +35,9 @@ async def seed():
             playlist_songs = json.load(f)
 
         # Insert songs
+        for song in songs:
+            if song['spotify_searched_at']:
+                song['spotify_searched_at'] = datetime.fromisoformat(song['spotify_searched_at'])
         for i in range(0, len(songs), 500):
             batch = songs[i:i+500]
             await session.execute(
@@ -46,6 +50,10 @@ async def seed():
         logger.info("Inserted %d songs", len(songs))
 
         # Insert playlists
+        for p in playlists:
+            p['date'] = date.fromisoformat(p['date'])
+            if p['scraped_at']: p['scraped_at'] = datetime.fromisoformat(p['scraped_at'])
+            if p['pushed_at']: p['pushed_at'] = datetime.fromisoformat(p['pushed_at'])
         for i in range(0, len(playlists), 500):
             batch = playlists[i:i+500]
             await session.execute(

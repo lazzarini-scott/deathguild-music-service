@@ -1,4 +1,5 @@
-const BASE = '/v1';
+const API_BASE = import.meta.env.VITE_API_URL || '';
+const BASE = `${API_BASE}/v1`;
 
 export interface SongSearchResult {
   id: number;

@@ -11,9 +11,6 @@ COPY repository/ repository/
 COPY alembic/ alembic/
 COPY alembic.ini .
 
-COPY seed.py .
-COPY seed_data/ seed_data/
-
 EXPOSE 8000
 
-CMD ["sh", "-c", "alembic upgrade head && python seed.py && uvicorn api.main:app --host 0.0.0.0 --port 8000"]
+CMD ["sh", "-c", "alembic upgrade head && uvicorn api.main:app --host 0.0.0.0 --port 8000"]

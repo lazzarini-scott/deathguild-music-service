@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-fog: #1a1a2e;
+  --color-crypt: #0f0f1a;
+  --color-tombstone: #2a2a3d;
+  --color-bone: #c8c8d0;
+  --color-ghost: #8888a0;
+  --color-blood: #8b0000;
+  --color-moss: #2d5a2d;
+  --color-spotify-green: #1db954;
+  --color-youtube-red: #ff0000;
+}
+
+@layer base {
+  body {
+    @apply bg-crypt text-bone min-h-screen antialiased;
+    font-family: 'Georgia', 'Times New Roman', serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-crypt;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-tombstone rounded;
+  }
+}

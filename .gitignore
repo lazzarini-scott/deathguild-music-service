@@ -1,0 +1,25 @@
+# Environment
+.env
+
+# Virtual environment
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Node / UI
+node_modules/
+ui/dist/
+
+# macOS
+.DS_Store

@@ -24,3 +24,9 @@ ui/dist/
 # macOS
 .DS_Store
 *.sql
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
